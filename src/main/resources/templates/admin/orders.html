@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Đơn hàng</title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid mt-5 p-1">
+			<div class="row">
+				<p class="text-center fs-3 mt-2">Tất cả đơn hàng</p>
+				<hr>
+				<a href="/admin/" class="text-decoration-none"><i class="fa-solid fa-arrow-left" ></i> Quay lại</a>
+				<th:block th:if="${session.succMsg}">
+					<p class="text-success fw-bold text-center">[[${session.succMsg}]]</p>
+					<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<th:block th:if="${session.errorMsg}">
+					<p class="text-danger fw-bold text-center">[[${session.errorMsg}]]</p>
+					<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+				<div class="col-md-4 p-4">
+
+					<form>
+						<div class="row">
+							<div class="col">
+								<input type="text" class="form-control " name=""
+									placeholder="Nhập mã đơn hàng">
+							</div>
+							<div class="col">
+								<button class="btn btn-primary col">Tìm kiếm</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+				<div class="col-md-12 ps-4 pe-4">
+
+					<table class="table table-bordered card-sh">
+						<thead>
+							<tr>
+								<th scope="col">Mã đơn hàng</th>
+								<th scope="col">Thông tin giao hàng</th>
+								<th scope="col">Ngày</th>
+								<th scope="col">Thông tin chi tiết sản phẩm</th>
+								<th scope="col">Giá tiền</th>
+								<th scope="col">Trạng thái đơn hàng</th>
+								<th scope="col">Chỉnh sửa trạng thái đơn hàng</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="o:${orders}">
+								<th scope="row">[[${o.orderId}]]</th>
+
+								<td>Tên : [[${o.orderAddress.lastName+'
+									'+o.orderAddress.firstName}]]<br> Email :
+									[[${o.orderAddress.email}]] <br> Số điện thoại:
+									[[${o.orderAddress.mobileNo}]] <br> Địa chỉ :
+									[[${o.orderAddress.address}]] <br> Thành phố :
+									[[${o.orderAddress.city}]] <br> Quận/Huyện :
+									[[${o.orderAddress.state}]], [[${o.orderAddress.pincode}]]
+
+
+
+								</td>
+								<td>[[${o.orderDate}]]</td>
+								<td>[[${o.product.title}]]</td>
+								<td>Số lượng: [[${o.quantity}]] <br>Giá tiền:
+									[[${o.price}]] VNĐ<br>Tổng giá tiền: [[${o.quantity *
+									o.price}]] VNĐ
+								</td>
+								<td>[[${o.status}]]</td>
+								<td>
+									<form action="/admin/update-order-status" method="post">
+										<div class="row">
+											<div class="col">
+												<select class="form-control" name="st">
+													<option>--select--</option>
+													<option value="1">Đang tiến hành</option>
+													<option value="2">Đã nhận được đơn hàng</option>
+													<option value="3">Sản phẩm đã được đóng gói</option>
+													<option value="4">Gửi đi để giao hàng</option>
+													<option value="5">Đã gửi</option>
+													<option value="6">Đã hủy</option>
+												</select>
+											</div>
+											<input th:value="${o.id}" name="id" type="hidden">
+											<div class="col">
+												<th:block th:if="${o.status=='Đã hủy' || o.status=='Đã giao'}">
+													<button class="btn btn-primary btn-sm col disabled">Cập nhật</button>
+												</th:block>
+												<th:block th:unless="${o.status=='Đã hủy' || o.status=='Đã giao'}">
+													<button  class="btn btn-sm btn-primary ">Cập nhật</button>
+												</th:block>
+
+												
+											</div>
+										</div>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</section>
+</body>
+</html>

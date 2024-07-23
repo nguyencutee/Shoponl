@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+
+		<div id="carouselExample" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/ecom1.png" class="d-block w-100" alt="..."
+						height="600px">
+				</div>
+				<div class="carousel-item">
+					<img src="img/ecom2.png" class="d-block w-100" alt="..."
+						height="600px">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Trước</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Sau</span>
+			</button>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<p class="text-center fs-4">Danh mục</p>
+				<div class="col-md-2">
+					<div
+						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+						<div class="card-body text-center">
+							<a href="/products?category=T-Shirt" class="text-decoration-none"><img src="img/category_img/T-Shirt.png" width="65%" height="140px"></a>
+							<p>T-shirt</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div
+						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+						<div class="card-body text-center">
+							<a href="/products?category=Hoodie" class="text-decoration-none"><img src="img/category_img/Hoodie.png" width="65%" height="140px"></a>
+							<p>Hoodie</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-md-2">
+					<div
+						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+						<div class="card-body text-center">
+							<a href="/products?category=Sweater" class="text-decoration-none"><img src="img/category_img/Sweater.png" width="65%" height="140px"></a>
+							<p>Sweater</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div
+						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+						<div class="card-body text-center">
+							<a href="/products?category=Áo%20sơ%20mi" class="text-decoration-none"><img src="img/category_img/Shirt.png" width="65%" height="140px"></a>
+							<p>Áo sơ mi</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-md-2">
+					<div
+						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+						<div class="card-body text-center">
+							<a href="/products?category=Cardigan" class="text-decoration-none"><img src="img/category_img/Cardigan.png" width="65%" height="140px"></a>
+							<p>Cardigan</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div
+						class="card rounded-circle shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+						<div class="card-body text-center">
+							<a href="/products?category=Quần%20Jean" class="text-decoration-none"><img src="img/category_img/Jean.png" width="65%" height="140px"></a>
+							<p>Quần Jean</p>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="container-fluid bg-light p-3">
+			<div class="row">
+				<p class="text-center fs-4">Sản phẩm bán chạy</p>
+
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/Shirt2.jpg" class="" width="75%"
+								height="220px" style="align-items: center">
+							<p class="text-center">Áo sơ mi 2</p>
+							<div class="row text-center">
+							<p class="fs-6 fw-bold ">
+								<span>200.000 VNĐ</span> <br> <span
+									class="text-decoration-line-through text-secondary">
+															200.000 VNĐ</span> <span class="fs-6 text-success">0%
+															off </span>
+							</p>
+							<a th:href="@{'/product/21'}"
+							   class="btn btn-primary col-md-6 offset-md-3">Xem chi tiết</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/Jean2.jpg" class="" width="75%"
+								 height="220px" style="align-items: center">
+							<p class="text-center">Quần Jean 2</p>
+							<div class="row text-center">
+								<p class="fs-6 fw-bold ">
+									<span>240.000 VNĐ</span> <br> <span
+										class="text-decoration-line-through text-secondary">
+															240.000 VNĐ</span> <span class="fs-6 text-success">0%
+															off </span>
+								</p>
+								<a th:href="@{'/product/33'}"
+								   class="btn btn-primary col-md-6 offset-md-3">Xem chi tiết</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/Hoodie5.jpg" class="" width="75%"
+								  height="220px" style="align-items: center">
+							<p class="text-center">Hoodie 5</p>
+							<div class="row text-center">
+								<p class="fs-6 fw-bold ">
+									<span>315.000 VNĐ</span> <br> <span
+										class="text-decoration-line-through text-secondary">
+															350.000 VNĐ</span> <span class="fs-6 text-success">10%
+															off </span>
+								</p>
+								<a th:href="@{'/product/12'}"
+								   class="btn btn-primary col-md-6 offset-md-3">Xem chi tiết</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+						<div class="card-body text-center">
+							<img alt="" src="img/product_img/Cardigan2.jpg" class="" width="75%"
+								 height="220px" style="align-items: center">
+							<p class="text-center">Cardigan 2</p>
+							<div class="row text-center">
+								<p class="fs-6 fw-bold ">
+									<span>320.000 VNĐ</span> <br> <span
+										class="text-decoration-line-through text-secondary">
+															320.000 VNĐ</span> <span class="fs-6 text-success">0%
+															off </span>
+								</p>
+								<a th:href="@{'/product/27'}"
+								   class="btn btn-primary col-md-6 offset-md-3">Xem chi tiết</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>
